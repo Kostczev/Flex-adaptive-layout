@@ -1,0 +1,246 @@
+@charset "UTF-8";
+/*отступы*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*перещет области*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*отключение обводки*/
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+/*делаем блочными некоторые теги*/
+nav, footer, header, aside {
+  display: block;
+}
+
+/*Уравниваем поведение шрифтов и тд для разных браузеров (также запрещает самовольное увеличени шрифтов (айфон))*/
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*Говоорим тегам наследовать семейство шрифта*/
+input, button, textarea {
+  font-family: inherit;
+  display: block;
+}
+
+/*еще куча фич, таких как отклчение крестиков и отступов в разных браузерах*/
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+/*Обнуляем все заголовки*/
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+
+.header {
+  background-color: darkslategray;
+}
+.header__container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.header__icon {
+  background-color: #fff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+.header__space {
+  flex: 1 1 auto;
+}
+.header__nav {
+  display: flex;
+}
+.header__item {
+  background-color: #fff;
+  width: 100px;
+  height: 25px;
+  margin: 0 8px;
+}
+.header__item:last-child {
+  margin: 0 0 0 8px;
+}
+@media (max-width: 767px) {
+  .header__nav {
+    display: none;
+  }
+  .header__burger {
+    height: 4rem;
+    width: 4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .header__bar {
+    width: 3.5rem;
+    height: 0.3rem;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+    z-index: 20;
+  }
+  .header__bar::after, .header__bar::before {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #fff;
+  }
+  .header__bar::after {
+    transform: translateY(1rem);
+  }
+  .header__bar::before {
+    transform: translateY(-1rem);
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+}
+.content__container {
+  margin: 25px auto 0;
+}
+
+.columns {
+  display: flex;
+  margin: 0 -10px 25px;
+}
+.columns__two-item {
+  flex: 0 1 50%;
+}
+.columns__three-item {
+  flex: 0 1 33.333%;
+}
+@media (max-width: 767px) {
+  .columns {
+    flex-direction: column;
+    margin: 0;
+  }
+}
+
+.column-item {
+  background-color: aquamarine;
+  padding: 10px;
+  margin: 0 10px;
+  color: #fff;
+}
+.column-item__image {
+  padding: 0 0 60% 0;
+  overflow: hidden;
+  position: relative;
+  margin: 0 0 12px 0;
+}
+.column-item__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.column-item__text {
+  font-size: 16px;
+  line-height: 24px;
+}
+@media (max-width: 767px) {
+  .column-item {
+    margin: 0 0 25px;
+  }
+}
+
+.footer {
+  background-color: darkslategray;
+  margin: 25px 0 0;
+}
+.footer__container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__item {
+  background-color: #fff;
+  width: 100px;
+  height: 25px;
+  margin: 10px 0;
+}

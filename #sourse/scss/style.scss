@@ -1,0 +1,156 @@
+@import "_nullstyle";
+
+.body{
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+.container{
+   max-width: 1200px;
+   padding: 0 15px;
+   @media (max-width:1200px) {
+      max-width: 970px;
+   }
+   @media (max-width:992px) {
+      max-width: 750px;
+   }
+   @media (max-width:767px) {
+      max-width: none;
+   }
+}
+
+.header {
+   background-color:darkslategray;
+      &__container {
+         margin: 0 auto;
+         display: flex;
+         align-items: center;
+		}
+		&__icon {
+         background-color: #fff;
+         width: 70px;
+         height: 70px;
+         border-radius: 50%;
+         margin: 10px 0;
+		}
+      &__space{
+         flex:1 1 auto;
+      }
+      &__nav {
+         display: flex;
+      }
+		&__item {
+         background-color: #fff;
+         width: 100px;
+         height: 25px;
+         margin: 0 8px;
+		}
+      &__item:last-child{
+         margin: 0 0 0 8px;
+      }
+      @media (max-width:767px) {
+         &__nav {
+            display: none;
+         }
+         &__burger {
+            height: 4rem;
+            width: 4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+         }
+         &__bar{
+            width: 3.5rem;
+            height: .3rem;
+            border-radius: 2px;
+            background-color: #fff;
+            position: relative;
+            z-index: 20;
+            &::after, &::before{
+               content: '';
+               position: absolute;
+               width: inherit;
+               height: inherit;
+               background-color: #fff;
+            }
+            &::after{
+               transform: translateY(1rem);
+            }
+            &::before{
+               transform: translateY(-1rem);
+            }
+         }
+      }
+}
+.content {
+   flex:1 1 auto;
+   &__container {
+      margin: 25px auto 0;
+   }
+}
+
+.columns {
+   display: flex;
+   margin: 0 -10px 25px;
+   &__two-item {
+      flex: 0 1 50%;
+   }
+   &__three-item{
+      flex: 0 1 33.333%
+   }
+   @media (max-width:767px) {
+      flex-direction: column;
+      margin: 0;
+   }
+}
+.column-item {
+   background-color:aquamarine;
+   padding: 10px;
+   margin: 0 10px;
+   color: #fff;
+
+   &__image {
+      // задавался вопросом "почему эти % именно такие, а не от всего экрана"?
+      // Ответ: это % от максимально возможного размера картинки, в данном случае - ее ширины
+      // ну и просто напоминалка, данная фича называется "отзывчивая высота"
+      padding: 0 0 60% 0;
+      overflow: hidden;
+      position: relative;
+      margin: 0 0 12px 0;
+   }
+   &__image img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+   }
+   &__text {
+      font-size: 16px;
+      line-height: 24px;
+   }
+   @media (max-width:767px) {
+      margin: 0 0 25px;
+   }
+}
+
+.footer {
+   background-color: darkslategray;
+   margin: 25px 0 0;
+   &__container {
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+   }
+   &__item {
+      background-color: #fff;
+      width: 100px;
+      height: 25px;
+      margin: 10px 0;
+   }
+}
